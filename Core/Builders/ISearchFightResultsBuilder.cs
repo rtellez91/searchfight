@@ -7,8 +7,8 @@ namespace SearchFight.Core.Builders
 {
     public interface ISearchFightResultsBuilder
     {
-        void SetSearchTermWinner(string searchTermWinner);
-        void AddResultBySearchTerm(string searchTerm, string searchProvider, int numberOfResults);
+        void SetSearchFightWinner(string searchTermWinner);
+        void AddResultBySearchTerm(string searchTerm, string searchProvider, long numberOfResults);
         void AddWinnerByProvider(string searchProvider, string searchFightWinner);
         SearchFightResults Build();
     }

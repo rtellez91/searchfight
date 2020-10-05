@@ -10,7 +10,7 @@ namespace SearchFight.Core.Builders
         Dictionary<string, string> winnersByProvider = new Dictionary<string, string>();
         Dictionary<string, Dictionary<string, SearchResult>> resultsBySearchTerm = new Dictionary<string, Dictionary<string, SearchResult>>();
         string searchFightWinner = null;
-        public void AddResultBySearchTerm(string searchTerm, string searchProvider, int numberOfResults)
+        public void AddResultBySearchTerm(string searchTerm, string searchProvider, long numberOfResults)
         {
             if (!resultsBySearchTerm.TryGetValue(searchTerm, out var value))
             {
@@ -27,7 +27,7 @@ namespace SearchFight.Core.Builders
             winnersByProvider.Add(searchProvider, searchTerm);
         }
 
-        public void SetSearchTermWinner(string searchFightWinner)
+        public void SetSearchFightWinner(string searchFightWinner)
         {
             this.searchFightWinner = searchFightWinner;
         }

@@ -6,6 +6,6 @@ namespace SearchFight.Domain.Services
 {
     public interface ISearchFightDomainService
     {
-        string GetSearchTermWinner(IEnumerable<SearchFightProvider> searchFightProviders);
+        string GetSearchFightWinner(IEnumerable<SearchFightProvider> searchFightProviders);
     }
 }

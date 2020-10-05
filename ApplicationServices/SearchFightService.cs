@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace SearchFight.ApplicationServices.Services
 {
@@ -24,9 +25,9 @@ namespace SearchFight.ApplicationServices.Services
             this.searchFightResultsBuilder = searchFightResultsBuilder;
         }
 
-        public SearchFightResults RunFight(IEnumerable<string> searchTerms)
+        public async Task<SearchFightResults> RunFight(IEnumerable<string> searchTerms)
         {
-            searchTerms = searchTerms.Distinct();
+            searchTerms = searchTerms.Select(st => st.ToLower()).Distinct();
             var searchFightProviders = new List<SearchFightProvider>();
             
             foreach (var searchProvider in searchProviders)
@@ -35,7 +36,7 @@ namespace SearchFight.ApplicationServices.Services
 
                 foreach (var searchTerm in searchTerms)
                 {
-                    var searchResult = searchProvider.Search(new SearchRequest { SearchTerm = searchTerm });
+                    var searchResult = await searchProvider.Search(new SearchRequest { SearchTerm = searchTerm });
                     searchFightProvider.AddResult(searchTerm, searchResult.NumberOfResults);
                     searchFightResultsBuilder.AddResultBySearchTerm(searchTerm, searchProvider.Name, searchResult.NumberOfResults);
                 }
@@ -44,8 +45,8 @@ namespace SearchFight.ApplicationServices.Services
                 searchFightProviders.Add(searchFightProvider);
             }
 
-            var searchTermWinner = searchFightDomainService.GetSearchTermWinner(searchFightProviders);
-            searchFightResultsBuilder.SetSearchTermWinner(searchTermWinner);
+            var searchTermWinner = searchFightDomainService.GetSearchFightWinner(searchFightProviders);
+            searchFightResultsBuilder.SetSearchFightWinner(searchTermWinner);
 
             return searchFightResultsBuilder.Build();
         }

@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "SearchFight": {
+      "commandName": "Project",
+      "commandLineArgs": ".net java \"python 3.6\"",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

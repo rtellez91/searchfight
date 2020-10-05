@@ -2,11 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace SearchFight.ApplicationServices.Interfaces
 {
     public interface ISearchFightService
     {
-        SearchFightResults RunFight(IEnumerable<string> searchTerms);
+        Task<SearchFightResults> RunFight(IEnumerable<string> searchTerms);
     }
 }

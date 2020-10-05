@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SearchFight.Domain.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
@@ -9,26 +10,31 @@ namespace SearchFight.Domain
     {
         public SearchFightProvider(string name)
         {
-            Name = name ?? throw new ArgumentNullException(nameof(name));
-            results = new Dictionary<string, int>();
+            Name = string.IsNullOrWhiteSpace(name) ? throw new ArgumentException(nameof(name)) : name;
+            results = new Dictionary<string, long>();
         }
 
-        private readonly IDictionary<string, int> results;
+        private readonly IDictionary<string, long> results;
         public string Name { get; private set; }
-        public IReadOnlyDictionary<string, int> Results => results.ToImmutableDictionary();
+        public IReadOnlyDictionary<string, long> Results => results.ToImmutableDictionary();
 
-        public void AddResult(string searchTerm, int numberOfResults)
+        public void AddResult(string searchTerm, long numberOfResults)
         {
+            if (string.IsNullOrWhiteSpace(searchTerm))
+            {
+                throw new ArgumentException(nameof(searchTerm));
+            }
+
             searchTerm = searchTerm.ToLower();
             if(results.ContainsKey(searchTerm))
             {
-                throw new Exception($"There is already a result record for {searchTerm}. If you want to replace that, use {nameof(ReplaceResult)} instead.");
+                throw new SearchTermAlreadyAddedException($"There is already a result record for {searchTerm}. If you want to replace that, use {nameof(ReplaceResult)} instead.");
             }
 
             results.Add(searchTerm, numberOfResults);
         }
 
-        public void ReplaceResult(string searchTerm, int numberOfResults)
+        public void ReplaceResult(string searchTerm, long numberOfResults)
         {
             searchTerm = searchTerm.ToLower();
             results.Remove(searchTerm);

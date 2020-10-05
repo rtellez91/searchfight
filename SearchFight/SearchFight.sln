@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchFight", "SearchFight.csproj", "{3B900665-AFC8-4BC9-B72C-D347A27129D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SearchFight", "SearchFight.csproj", "{3B900665-AFC8-4BC9-B72C-D347A27129D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "..\Infrastructure\Infrastructure.csproj", "{7BA90798-B4EF-45A4-A040-05E5EFB26669}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "..\Infrastructure\Infrastructure.csproj", "{7BA90798-B4EF-45A4-A040-05E5EFB26669}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "..\Core\Core.csproj", "{3847D98A-9A77-4632-ACB1-DE0D8A125751}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "..\Core\Core.csproj", "{3847D98A-9A77-4632-ACB1-DE0D8A125751}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "..\Domain\Domain.csproj", "{07291418-240A-44EC-9536-B7112813CE65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "..\Domain\Domain.csproj", "{07291418-240A-44EC-9536-B7112813CE65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Services", "..\Domain.Services\Domain.Services.csproj", "{FE580346-CBBF-423E-89B3-0CFDFBEB2C01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Services", "..\Domain.Services\Domain.Services.csproj", "{FE580346-CBBF-423E-89B3-0CFDFBEB2C01}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationServices", "..\ApplicationServices\ApplicationServices.csproj", "{C885AC31-20F9-4B34-9DB7-B9E81A1C686A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "..\Tests\Tests.csproj", "{E9BD6FFD-2C9C-4308-B98A-BCBDE21B7268}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{C885AC31-20F9-4B34-9DB7-B9E81A1C686A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C885AC31-20F9-4B34-9DB7-B9E81A1C686A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C885AC31-20F9-4B34-9DB7-B9E81A1C686A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9BD6FFD-2C9C-4308-B98A-BCBDE21B7268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9BD6FFD-2C9C-4308-B98A-BCBDE21B7268}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9BD6FFD-2C9C-4308-B98A-BCBDE21B7268}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9BD6FFD-2C9C-4308-B98A-BCBDE21B7268}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

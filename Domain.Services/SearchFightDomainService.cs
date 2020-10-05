@@ -7,8 +7,13 @@ namespace SearchFight.Domain.Services
 {
     public class SearchFightDomainService : ISearchFightDomainService
     {
-        public string GetSearchTermWinner(IEnumerable<SearchFightProvider> searchFightProviders)
+        public string GetSearchFightWinner(IEnumerable<SearchFightProvider> searchFightProviders)
         {
+            if(searchFightProviders is null || !searchFightProviders.Any())
+            {
+                throw new ArgumentException(nameof(searchFightProviders));
+            }
+
             return searchFightProviders
                     .SelectMany(sfp => sfp.Results)
                     .GroupBy(kp => kp.Key)
